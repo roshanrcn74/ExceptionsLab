@@ -18,13 +18,17 @@ public class NameService {
      * @throws YourCustomExceptionName if fullName is null or empty or has
      * fewer than two parts
      */
-    public String extractLastName(String fullName) {
+    public String extractLastName(String fullName) throws IllegalArgumentException {
         String lastName = null;
-        
         // put your code here
+        if (fullName == null || fullName.isEmpty()){
+            throw new MandatoryNameException("Full Name must have first last name");    
+        } else if (fullName.split(" ").length != 2){
+            throw new MandatoryNamePartsException("Full Name must have two parts only"); 
+        }
         
         
-        return lastName;
+        return fullName.split(" ")[1];
     }
     
 }

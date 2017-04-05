@@ -10,16 +10,19 @@ package lab3;
  * @author roshann
  */
 public class MandatoryNameException extends IllegalArgumentException {
+    
+    private final static String msg = "Method argument is mandatory";
 
     public MandatoryNameException() {
+        super(msg);
     }
 
     public MandatoryNameException(String s) {
-        super(s);
+        super(msg);
     }
 
     public MandatoryNameException(String message, Throwable cause) {
-        super(message, cause);
+        super(msg, cause);
     }
 
     public MandatoryNameException(Throwable cause) {
